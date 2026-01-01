@@ -1,23 +1,23 @@
 import { Card } from "@/components/ui/card";
-import profileImg from "@/assets/profile.jpg";
+import profileImg from "@/assets/profile2.jpeg";
 import { Brain, Award, Code } from "lucide-react";
 
 const About = () => {
   const highlights = [
     {
       icon: Brain,
-      title: "5+ Years Experience",
-      description: "Building ML systems"
+      title: "ANN Proficiency",
+      description: "Understanding of Artificial Neural Networks"
     },
     {
       icon: Award,
-      title: "10+ Certifications",
-      description: "From top institutions"
+      title: "5+ Certifications",
+      description: "From authenticate sources"
     },
     {
       icon: Code,
-      title: "20+ Projects",
-      description: "Deployed in production"
+      title: "10+ Projects",
+      description: "Scalable production systems"
     }
   ];
 
@@ -46,15 +46,11 @@ const About = () => {
 
           {/* About Content */}
           <div className="space-y-6 animate-fade-in-up">
-            <p className="text-lg leading-relaxed">
-              I'm an AI & Machine Learning Engineer with a passion for developing intelligent systems 
-              that solve real-world problems. With expertise in deep learning, computer vision, and 
-              natural language processing, I've built and deployed ML models that serve millions of users.
+            <p className="text-lg leading-relaxed text-justify">
+              I am an engineering student with a strong interest in data and its power to transform raw information into meaningful insights. I am currently learning and building skills as a Full-Stack Data Professional, exploring the complete data lifecycle—from data collection and preprocessing to exploratory data analysis, visualization, and introductory machine learning. Through hands-on projects using Python, SQL, and data analysis tools, I focus on understanding how data-driven solutions are designed, implemented, and communicated effectively.
             </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              My journey in AI began with a fascination for neural networks and has evolved into a 
-              career focused on pushing the boundaries of what's possible with machine learning. 
-              I specialize in creating scalable ML pipelines and deploying production-ready AI solutions.
+            <p className="text-lg leading-relaxed text-muted-foreground text-justify">
+              I chose this path because data combines structured thinking with creativity and real-world impact. The process of asking questions, exploring patterns, and uncovering insights excites me and keeps me motivated to learn more each day. This field encourages continuous growth, experimentation, and problem-solving, which aligns perfectly with my curiosity and long-term goal of becoming a professional who builds reliable, ethical, and impactful data-driven solutions.
             </p>
 
             {/* Highlights */}

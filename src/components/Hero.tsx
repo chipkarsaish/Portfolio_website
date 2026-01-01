@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${heroBg})`,
@@ -24,42 +24,53 @@ const Hero = () => {
           <p className="text-muted-foreground mb-4 text-lg animate-fade-in-up">
             Hi, I'm
           </p>
-          
+
           {/* Name with Gradient */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-scale-in">
-            <span className="text-gradient">Your Name</span>
+            <span className="text-gradient">Saish Chipkar</span>
           </h1>
-          
+
           {/* Title */}
           <h2 className="text-2xl md:text-4xl font-semibold mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            AI & Machine Learning Engineer
+            Data Scientist
           </h2>
-          
+
           {/* Tagline */}
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            Building intelligent systems that learn and adapt
+            Data Scientist | Machine Learning & Deep Learning
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 justify-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <Button variant="hero" size="lg" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
               View Projects
             </Button>
-            <Button variant="outline" size="lg">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/resume.pdf'; // Path to your resume file
+                link.download = 'Saish_Resume.pdf'; // Name for downloaded file
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               <Download className="mr-2 h-4 w-4" />
               Download Resume
             </Button>
           </div>
-          
+
           {/* Social Links */}
           <div className="flex gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all hover:scale-110">
+            <a href="https://github.com/chipkarsaish" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all hover:scale-110">
               <Github className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all hover:scale-110">
+            <a href="https://www.linkedin.com/in/saish-chipkar-2237b82b3" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all hover:scale-110">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="mailto:your.email@example.com" className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all hover:scale-110">
+            <a href="mailto:saish.chipkar25@gmail.com" className="p-3 rounded-full border border-primary/30 hover:border-primary hover:bg-primary/10 transition-all hover:scale-110">
               <Mail className="h-5 w-5" />
             </a>
           </div>

@@ -46,33 +46,33 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="space-y-4">
-              <a href="mailto:your.email@example.com" className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group">
+              <a href="mailto:saish.chipkar25@gmail.com" className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group">
                 <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="font-semibold">Email</p>
-                  <p className="text-sm text-muted-foreground">your.email@example.com</p>
+                  <p className="text-sm text-muted-foreground">saish.chipkar25@gmail.com</p>
                 </div>
               </a>
 
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group">
+              <a href="https://github.com/chipkarsaish" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group">
                 <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform">
                   <Github className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="font-semibold">GitHub</p>
-                  <p className="text-sm text-muted-foreground">@yourusername</p>
+                  <p className="text-sm text-muted-foreground">chipkarsaish</p>
                 </div>
               </a>
 
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group">
+              <a href="https://www.linkedin.com/in/saish-chipkar-2237b82b3" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group">
                 <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform">
                   <Linkedin className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="font-semibold">LinkedIn</p>
-                  <p className="text-sm text-muted-foreground">linkedin.com/in/yourprofile</p>
+                  <p className="text-sm text-muted-foreground">Saish Chipkar</p>
                 </div>
               </a>
             </div>

@@ -1,42 +1,54 @@
 import { Card } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 
 const Skills = () => {
   const skillCategories = [
+
     {
-      category: "Programming Languages",
+      category: "Languages",
       skills: [
-        { name: "Python", level: 95 },
-        { name: "R", level: 80 },
-        { name: "SQL", level: 85 },
-        { name: "C++", level: 70 },
+        { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "JS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
       ]
     },
     {
       category: "ML/DL Frameworks",
       skills: [
-        { name: "TensorFlow", level: 90 },
-        { name: "PyTorch", level: 88 },
-        { name: "Scikit-learn", level: 92 },
-        { name: "Keras", level: 85 },
-      ]
-    },
-    {
-      category: "Data & Visualization",
-      skills: [
-        { name: "Pandas", level: 93 },
-        { name: "NumPy", level: 90 },
-        { name: "Matplotlib", level: 85 },
-        { name: "Power BI", level: 75 },
+        { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "Keras", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" },
+        { name: "Scikit-learn", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+        { name: "Pandas", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+        { name: "NumPy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
       ]
     },
     {
       category: "Tools & Technologies",
       skills: [
-        { name: "Git", level: 88 },
-        { name: "Docker", level: 80 },
-        { name: "Streamlit", level: 85 },
-        { name: "Flask", level: 82 },
+        { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "Streamlit", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" },
+        { name: "Flask", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+        { name: "Power BI", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" },
+        { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "Jupyter Notebook", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg" },
+      ]
+    },
+    {
+      category: "Data Analysis & Processing",
+      skills: [
+        { name: "Pandas", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+        { name: "NumPy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+        { name: "Matplotlib", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" },
+        { name: "Seaborn", logo: "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" },
+        { name: "Plotly", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/plotly/plotly-original.svg" },
+      ]
+    },
+    {
+      category: "Database",
+      skills: [
+        { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "SQLite", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
       ]
     }
   ];
@@ -48,25 +60,39 @@ const Skills = () => {
           Technical <span className="text-gradient">Skills</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Expertise across the full ML engineering stack
+          Expertise across the full Stack Data Professional stack
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {skillCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="p-6 card-shadow bg-card/50 backdrop-blur hover:scale-105 transition-all animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
-              <h3 className="text-xl font-bold mb-6 text-primary">{category.category}</h3>
-              <div className="space-y-4">
+            <div
+              key={categoryIndex}
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+            >
+              <h3 className="text-lg font-semibold mb-4 text-muted-foreground uppercase tracking-wide">
+                {category.category}
+              </h3>
+              <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground">{skill.level}%</span>
+                  <div
+                    key={skillIndex}
+                    className="group relative px-6 py-4 bg-blue-50 border border-blue-200 rounded-lg hover:border-blue-300 hover:bg-blue-100 transition-all duration-300 hover:scale-105 cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={skill.logo}
+                        alt={`${skill.name} logo`}
+                        className="w-7 h-7 object-contain"
+                      />
+                      <span className="text-base font-medium text-blue-900">
+                        {skill.name}
+                      </span>
                     </div>
-                    <Progress value={skill.level} className="h-2" />
                   </div>
                 ))}
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

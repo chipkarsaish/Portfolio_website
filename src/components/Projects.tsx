@@ -10,9 +10,9 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "AI-Based Heart Disease Prediction System",
-      description: "ML model predicting heart disease with 95% accuracy using patient health metrics and lifestyle data. Deployed as a Streamlit web app.",
-      overview: "This project aims to predict the likelihood of heart disease using machine learning algorithms to assist healthcare professionals in early diagnosis. The system analyzes patient health metrics and lifestyle factors to provide risk assessments, enabling proactive healthcare interventions.",
+      title: "ML-Based Heart Disease Prediction System",
+      description: "ML model predicting heart disease with 95% accuracy using patient health metrics and lifestyle data. Deployed as a Flask Application.",
+      overview: "This project aims to predict the Binary Classification of heart disease using machine learning algorithms to assist healthcare professionals in early diagnosis. The system analyzes patient health metrics and lifestyle factors to provide risk assessments, enabling proactive healthcare interventions.",
       problemStatement: "Traditional diagnosis methods for cardiovascular diseases are often time-consuming, expensive, and subjective, leading to delayed detection. Heart disease remains a leading cause of death globally, and there is a critical need for accessible, accurate, and early prediction systems that can identify at-risk patients before symptoms become severe.",
       objectives: [
         "Develop a highly accurate ML model for heart disease risk prediction",
@@ -61,110 +61,52 @@ const Projects = () => {
       snapshots: ["/placeholder.svg", "/placeholder.svg"]
     },
     {
-      title: "Real-time Object Detection System",
-      description: "Computer vision system using YOLO for real-time object detection in video streams with 30+ FPS performance.",
-      overview: "This project implements a high-performance real-time object detection system capable of identifying and tracking multiple objects in video streams. Designed for security and surveillance applications, it processes 1080p video at 35+ FPS while maintaining high detection accuracy across various environmental conditions.",
-      problemStatement: "Traditional security systems rely on manual monitoring, which is inefficient and prone to human error. Modern surveillance requires automated, real-time object detection with high accuracy and low latency. The challenge was to process high-resolution video streams at 30+ FPS while maintaining detection accuracy across various lighting conditions, object scales, and occlusions.",
-      objectives: [
-        "Achieve real-time object detection at 30+ FPS on 1080p video",
-        "Support detection of 80+ object classes with high accuracy",
-        "Implement GPU acceleration for optimal performance",
-        "Create a REST API for easy system integration",
-        "Handle various lighting and weather conditions effectively"
-      ],
-      literatureReview: "YOLO (You Only Look Once) represents a breakthrough in real-time object detection. Unlike R-CNN variants that use region proposals, YOLO treats detection as a regression problem, enabling single-pass inference. YOLOv5 offers the best balance of speed and accuracy. This project leverages YOLOv5's architecture while implementing custom optimizations for surveillance scenarios.",
-      architecture: "The system comprises: (1) Video Ingestion Layer - captures frames from IP cameras or video files; (2) Preprocessing Layer - resizes and normalizes frames; (3) Detection Layer - YOLOv5 model performs inference; (4) Post-processing Layer - applies NMS and tracking; (5) API Layer - Flask REST API serves results; (6) Visualization Layer - annotates frames with bounding boxes and labels.",
-      methodology: "Model Selection: Chose YOLOv5m for optimal speed-accuracy tradeoff. Fine-tuning: Trained on COCO dataset supplemented with custom retail environment images. Optimization: Implemented TensorRT for inference acceleration, batch processing for multiple streams, and asynchronous frame processing. API Development: Built Flask REST API with endpoints for video upload, live stream processing, and result retrieval. Deployment: Containerized using Docker with CUDA support.",
-      tools: ["Python", "PyTorch", "YOLOv5", "OpenCV", "Flask", "CUDA", "TensorRT", "Docker", "NumPy"],
-      modules: [
-        "Video Stream Handler - Manages multiple camera feeds and video files",
-        "Frame Preprocessing - Resizing, normalization, and augmentation",
-        "YOLO Inference Engine - GPU-accelerated object detection",
-        "Object Tracking - Maintains object IDs across frames",
-        "Alert System - Triggers notifications for specific detections",
-        "REST API - Provides endpoints for integration",
-        "Dashboard - Real-time visualization of detection results"
-      ],
-      results: "Achieved 35 FPS on 1080p video streams with 89% mAP@0.5. Successfully detects 80+ object classes including people, vehicles, and animals. Inference latency of 28ms per frame on NVIDIA RTX 3060. The system handles 4 simultaneous video streams without performance degradation. Successfully deployed in retail environment processing 1M+ frames daily.",
-      testing: "Performance testing across various resolutions (720p, 1080p, 4K) and frame rates. Accuracy validation on COCO validation set and custom retail dataset. Stress testing with 8 concurrent video streams. Tested under different lighting conditions (daylight, night, low-light) and weather scenarios. Load testing of REST API with 100+ concurrent requests.",
-      challenges: [
-        "GPU Memory Constraints: Optimized batch size and implemented model quantization",
-        "Real-time Performance: Achieved through TensorRT optimization and asynchronous processing",
-        "Object Tracking: Implemented DeepSORT for robust multi-object tracking",
-        "False Positives: Reduced through confidence threshold tuning and NMS optimization"
-      ],
-      futureScope: [
-        "Implement YOLOv8 for improved accuracy",
-        "Add action recognition for suspicious behavior detection",
-        "Integrate with facial recognition system",
-        "Support edge deployment on Jetson devices",
-        "Implement anomaly detection using unsupervised learning"
-      ],
-      conclusion: "The Real-time Object Detection System successfully demonstrates the capability of deep learning in automated surveillance. With 35 FPS performance and 89% accuracy, it provides a robust solution for security applications, significantly reducing the need for manual monitoring while improving threat detection capabilities.",
-      references: [
-        "Redmon et al. (2016) - You Only Look Once: Unified, Real-Time Object Detection",
-        "Ultralytics YOLOv5 Documentation",
-        "Lin et al. (2014) - Microsoft COCO: Common Objects in Context",
-        "Wojke et al. (2017) - Simple Online and Realtime Tracking with Deep Association Metric"
-      ],
-      tags: ["PyTorch", "OpenCV", "YOLO", "Flask"],
-      github: "https://github.com",
-      demo: null,
-      snapshots: ["/placeholder.svg", "/placeholder.svg"]
-    },
-    {
-      title: "Multi-lingual Sentiment Analysis API",
-      description: "NLP-powered REST API for sentiment analysis with multi-language support, handling 1000+ requests per minute.",
-      overview: "A scalable, production-ready REST API that performs sentiment analysis on text data across 10+ languages. Built for businesses to analyze customer feedback, social media posts, and reviews in real-time. The API leverages state-of-the-art transformer models and implements advanced caching and batching strategies for high-throughput performance.",
-      problemStatement: "Businesses receive customer feedback through multiple channels (social media, reviews, emails) in various languages. Manual sentiment analysis is time-consuming and subjective. Existing solutions often support limited languages or lack the scalability required for real-time analysis. The challenge was to create a unified API that could handle diverse languages, process thousands of requests per minute, and maintain high accuracy.",
-      objectives: [
-        "Build a REST API supporting 10+ languages for sentiment analysis",
-        "Achieve 1000+ requests per minute throughput with <200ms latency",
-        "Maintain 90%+ accuracy across all supported languages",
-        "Implement robust caching and request batching mechanisms",
-        "Provide detailed sentiment scores and confidence metrics"
-      ],
-      literatureReview: "BERT (Bidirectional Encoder Representations from Transformers) revolutionized NLP by introducing bidirectional context understanding. Multilingual BERT (mBERT) extends this to 104 languages. Recent work on cross-lingual models like XLM-RoBERTa shows improved performance. This project fine-tunes mBERT on multilingual sentiment datasets and implements production-grade optimizations.",
-      architecture: "Three-tier architecture: (1) API Gateway Layer - FastAPI handles HTTP requests, authentication, and rate limiting; (2) Processing Layer - Request batching, model inference, and caching logic; (3) Model Layer - Fine-tuned BERT model with ONNX runtime for optimized inference. Redis cache stores frequent queries. PostgreSQL logs requests for analytics. Docker containers enable horizontal scaling.",
-      methodology: "Model Development: Fine-tuned multilingual BERT on aggregated sentiment datasets from Amazon reviews, Twitter, and IMDB in 10 languages. Training used 4 A100 GPUs for 72 hours. Optimization: Converted model to ONNX format for 3x inference speedup. API Development: Built with FastAPI for async request handling. Implemented request batching (max 32 requests) and Redis caching (TTL 1 hour). Deployment: Containerized with Docker, orchestrated with Kubernetes, deployed on AWS ECS with auto-scaling.",
-      tools: ["Python", "TensorFlow", "PyTorch", "Transformers", "BERT", "FastAPI", "Redis", "PostgreSQL", "Docker", "Kubernetes", "ONNX"],
-      modules: [
-        "Authentication Module - JWT-based API key authentication",
-        "Request Validation - Pydantic schemas for input validation",
-        "Preprocessing Module - Text cleaning and language detection",
-        "Batching Engine - Groups requests for efficient processing",
-        "Inference Module - ONNX-optimized BERT inference",
-        "Caching Layer - Redis-based result caching",
-        "Analytics Module - Tracks usage and performance metrics",
-        "Rate Limiter - Token bucket algorithm for fair usage"
-      ],
-      results: "API successfully handles 1200+ requests per minute with average latency of 185ms. Achieved 91% average accuracy across 10 supported languages (English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Japanese, Chinese). Cache hit rate of 34% significantly reduces compute costs. 99.9% uptime over 6 months of production use. Processes 500K+ requests daily for 12 enterprise clients.",
-      testing: "Unit testing with pytest covering 95% code coverage. Load testing using Locust simulating 2000 concurrent users. Accuracy validation on held-out test sets for each language. Stress testing to identify breaking points (max 1500 RPS before degradation). A/B testing of caching strategies. Security penetration testing for API vulnerabilities.",
-      challenges: [
-        "Language Detection: Implemented fasttext for accurate language identification",
-        "Model Size: Reduced from 1.3GB to 420MB using model distillation",
-        "Cold Start: Implemented model warm-up scripts reducing first-request latency",
-        "Memory Leaks: Fixed using proper resource cleanup and garbage collection tuning"
-      ],
-      futureScope: [
-        "Add support for aspect-based sentiment analysis",
-        "Implement emotion detection (joy, anger, sadness, etc.)",
-        "Expand to 20+ languages including Arabic and Hindi",
-        "Add streaming API for real-time social media monitoring",
-        "Integrate sarcasm and irony detection"
-      ],
-      conclusion: "The Multi-lingual Sentiment Analysis API successfully delivers enterprise-grade sentiment analysis capabilities across multiple languages. With high throughput, low latency, and robust accuracy, it empowers businesses to gain actionable insights from customer feedback at scale, improving customer satisfaction and business decision-making.",
-      references: [
-        "Devlin et al. (2018) - BERT: Pre-training of Deep Bidirectional Transformers",
-        "Pires et al. (2019) - How multilingual is Multilingual BERT?",
-        "HuggingFace Transformers Documentation",
-        "FastAPI Documentation - High-Performance APIs"
-      ],
-      tags: ["TensorFlow", "BERT", "FastAPI", "Docker"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      snapshots: ["/placeholder.svg", "/placeholder.svg"]
-    },
+  "title": "Exploratory Data Analysis (EDA) and Feature Engineering of Google Play Store Dataset",
+  "description": "A comprehensive data science project performing Exploratory Data Analysis (EDA) and feature engineering on a dataset of 10,000+ Google Play Store apps to extract market insights and trends.",
+  "overview": "This project analyzes the Google Play Store dataset to uncover insights regarding app popularity, user engagement, and pricing strategies. By cleaning raw data and performing feature engineering on metrics like app size, installs, and reviews, the system provides a clear picture of the competitive landscape in the Android app market.",
+  "problemStatement": "With millions of apps available on the Google Play Store, it is challenging for developers and stakeholders to identify which factors contribute most to an app's success. There is a need to quantify the relationships between categories, ratings, installations, and pricing to make data-driven decisions for app development and marketing.",
+  "objectives": [
+    "Identify the most popular app categories based on total installations",
+    "Perform data cleaning to handle missing values and inconsistent data types",
+    "Engineers new features from existing attributes like 'Last Updated' and 'Size'",
+    "Determine correlations between app ratings, reviews, and installation counts",
+    "Identify outliers and trends in app pricing across different genres"
+  ],
+  "literatureReview": "Traditional app market analysis often focuses on surface-level metrics. Recent data science approaches utilize automated cleaning pipelines and advanced visualization to detect non-linear correlations. This project builds on standard EDA practices by implementing custom feature engineering for date-based and numerical transformations to improve analytical depth.",
+  "architecture": "The system follows a standard data science pipeline: (1) Data Ingestion - loading raw CSV data from web sources; (2) Data Cleaning Layer - processing strings, handling nulls, and correcting data types; (3) Feature Engineering Layer - extracting day, month, and year from timestamps and normalizing app sizes; (4) Visualization Layer - generating charts using Matplotlib and Seaborn to communicate insights.",
+  "methodology": "Data Collection: Utilized a dataset consisting of 10,841 rows and 13 initial columns. Preprocessing: Converted 'Reviews' to integer, 'Size' to float (normalizing MB and KB to a single unit), and 'Price' and 'Installs' to numerical formats by removing special characters. Feature Engineering: Extracted 'Day_Last_Updated', 'Month_Last_Updated', and 'Year_Last_Updated' from the date field. Evaluation: Conducted statistical analysis using the .describe() method and identified duplicates to ensure data integrity.",
+  "tools": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter Notebook"],
+  "modules": [
+    "Data Cleaning Module - Handles null values in Ratings and cleans string characters from numerical columns",
+    "Feature Engineering Module - Transforms the 'Last Updated' column into discrete time-based features",
+    "EDA Module - Performs group-by operations to find total installs per category and popular apps",
+    "Visualization Module - Generates bar charts and histograms to show distribution of categories and ratings"
+  ],
+  "results": "The analysis revealed that the 'GAME' and 'COMMUNICATION' categories have the highest number of installations, exceeding 13 billion and 11 billion respectively. Data cleaning successfully filled 1,474 missing rating values with the mean and removed 1,181 duplicate app entries. Feature engineering successfully converted varied app size strings (e.g., '19M', '201k') into a unified numerical float format for analysis.",
+  "testing": "Validated data integrity by verifying the absence of null values after cleaning using .isnull().sum(). Ensured accuracy of feature engineering by checking the output of new date-based columns against the original 'Last Updated' strings. Tested group-by aggregations to ensure total install counts matched the sum of individual app records.",
+  "challenges": [
+    "Data Inconsistency: Resolved varied string formats in the 'Size' and 'Installs' columns using custom conversion functions.",
+    "Missing Data: Addressed significant null counts in the 'Rating' column through mean imputation.",
+    "Duplicate Records: Identified and removed redundant entries for the same application to prevent skewed results."
+  ],
+  "futureScope": [
+    "Implement a machine learning model to predict app ratings based on size and category",
+    "Perform sentiment analysis on user reviews to correlate text sentiment with numerical ratings",
+    "Develop an interactive dashboard using Streamlit for real-time market exploration",
+    "Integrate historical data to analyze the growth trends of specific categories over time"
+  ],
+  "conclusion": "The project successfully demonstrates how EDA and feature engineering can transform messy real-world data into actionable insights. By normalizing inconsistent features and aggregating performance metrics, the project identifies 'Game', 'Communication', and 'Tools' as the dominant forces in the Play Store market, providing a foundation for strategic app development.",
+  "references": [
+    "Google Play Store Apps Dataset (Kaggle/GitHub)",
+    "Pandas Documentation for Data Manipulation",
+    "Matplotlib/Seaborn Visualization Libraries",
+    "Python Data Science Handbook"
+  ],
+  "tags": ["Python", "EDA", "Data Cleaning", "Feature Engineering", "Pandas"],
+  "github": "https://github.com/chipkarsaish/googleplayapps-eda",
+  "demo": "https://github.com/chipkarsaish/googleplayapps-eda/blob/main/GooglePlayApps.ipynb",
+  "snapshots": ["/google_play_eda_dist.svg", "/category_installs_chart.svg"]
+},
     {
       title: "Customer Churn Prediction System",
       description: "Ensemble ML model predicting customer churn with 92% accuracy, helping reduce churn rate by 15%.",
